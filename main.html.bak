@@ -1,0 +1,45 @@
+</html>
+<title>RESULT ANALYSIS SYSTEM </title>
+<style type = "text/css">
+body{background-image :url(bag.jpg);}
+</style>
+<body>
+
+
+<center>
+<table>
+<tr>
+<th>
+ 
+<img src="m.jpg" height="100" width="100" alt="logo"  />
+
+</th> 
+
+<TH>
+
+<img src="resultan.jpg" height="70" width="400" alt="logo"  />
+</TH>
+</center>
+</table>
+<hr />
+<hr/>
+
+
+<center>
+<table  border = "border" cellspacing = 20 cellpading=10>
+
+<tr align = "center">
+<a href = "main.html" ><font size="40"><i><H3>NEWS</H3></tr>
+<tr align = "center">
+
+<a href = "main.html" ><font size="40"><i><H3>RESULTS</H3></tr>
+
+<tr align = "center">
+<a href = "main.html" ><font size="40"><i><H3>REPORT</H3></tr>
+
+</table>
+</center>
+
+ 
+</body>
+</html>

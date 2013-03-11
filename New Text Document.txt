@@ -1,0 +1,21 @@
+<?php
+
+$dtbase=$_POST["dt"];
+$exam=$_POST["exn"];
+$did=$_POST["delid"];
+
+$conn = mysql_connect("localhost","root", "");
+mysql_select_db($dtbase,$conn);
+$sql= "DELETE from $exam where id=$did";
+$result=mysql_query($sql, $conn);
+if(!$result)
+{
+echo"no such record found"
+
+}
+else
+{
+echo"deleted succesfully";
+}
+  
+?>
