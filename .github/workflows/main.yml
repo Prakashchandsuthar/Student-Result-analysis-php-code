@@ -26,6 +26,13 @@ jobs:
       - name: chekout code
         uses: actions/checkout@v3
 
+      ## Trufflehog secret scan
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }} // necessary for pull request workflow trigger
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master
       
       ## PHP SCAN
       - name: Security Scanner for PHP
