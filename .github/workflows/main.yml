@@ -7,8 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  #pull_request:
+   # branches: [ "master" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -33,7 +33,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }} // necessary for pull request workflow trigger
       - name: trufflehog-actions-scan
-        uses: edplato/trufflehog-actions-scan@master
+        uses: edplato/trufflehog-actions-scan@master || true
         with:
           scanArguments: "--regex --entropy=False --max_depth=5 --rules /regexes.json" # Add custom options here*
       
