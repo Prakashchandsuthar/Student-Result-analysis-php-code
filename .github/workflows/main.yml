@@ -27,19 +27,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: chekout code
-        uses: actions/checkout@v3
- 
- ## Dependecy scan
-  dependency-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout Repository'
-        uses: actions/checkout@v3
-      - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v2
+        uses: actions/checkout@v3 
         
   ## Trufflehog secret scan        
   trufflehog_scan:
+    name: Secret scan
     runs-on: ubuntu-latest
     
     steps:
@@ -52,10 +44,20 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: trufflehog-actions-scan
         uses: edplato/trufflehog-actions-scan@master
+
+ ## Dependecy scan
+  dependency-scan:
+    name: Dependency scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v2
   
   ## PHP SAST SCAN      
   sast_scan:
-    name: Run PHPMD scanning
+    name: PHP SAST scan
     runs-on: ubuntu-latest
     permissions:
       contents: read # for checkout to fetch code
@@ -81,8 +83,9 @@ jobs:
           sarif_file: phpmd-results.sarif
           wait-for-processing: true    
         
-  ## PHP SAST SCAN      
+  ## ZAP DAST SCAN      
   ZAP_scan:
+    name: ZAP DAST scan
     runs-on: ubuntu-latest
     steps:
       - name: ZAP Scan
